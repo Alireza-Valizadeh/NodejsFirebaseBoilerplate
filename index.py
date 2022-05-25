@@ -139,7 +139,6 @@ export default async function setSomething(
   }
   return null;
 }
-}
 """
 sampleWrite.write(sampleWriteContents)
 sampleWrite.close()
@@ -169,7 +168,7 @@ validateUidContents = """export default function validateUid(uid: string, guid: 
     console.log(`Falsy values uid: ${uid} guid ${guid}`);
     return false;
   }
-  return areIdsIdentical && uid.length > 28;
+  return areIdsIdentical && uid.length > 20;
 }
 """
 validateUid = open(os.path.join("src", "Validators", "ValidateUid.ts"), "w")
