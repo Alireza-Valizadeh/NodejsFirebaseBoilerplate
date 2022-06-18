@@ -63,7 +63,7 @@ admin.initializeApp({
   projectId: project_id,
 });
 
-export const HelloWorld = functions.https.onRequest(async(req, res) => {
+export const HelloWorld = functions.https.onRequest(async(req, res): Promise<any> => {
   return res.send("Hello world!");
 });
 
@@ -78,7 +78,7 @@ module.exports = {
   testTimeout: 60000
 };"""
 
-jest = open("src/jest.config.js", "w")
+jest = open("jest.config.js", "w")
 jest.write(jestConfig)
 jest.close()
 
@@ -88,9 +88,9 @@ serviceKey.write("// INSERT SERVICE ACCOUNT KEY HERE")
 serviceKey.close()
 
 integrationSampleTest = open(os.path.join("src", "__tests__", "Integration", "sample.test.ts"), "w")
-integrationSampleTest.write("""const project_id = "ssrtest-cebd9";
+integrationSampleTest.write("""/*
+const project_id = "ssrtest-cebd9";
 import * as path from "path";
-import * as admin from "firebase-admin";
 
 const _test = require("firebase-functions-test")(
   {
@@ -103,6 +103,7 @@ const _test = require("firebase-functions-test")(
 import * as functions from "../../index";
 
 _test.wrap(functions.HelloWorld);
+*/
 """)
 integrationSampleTest.close()
 
@@ -143,20 +144,20 @@ export default async function setSomething(
 sampleWrite.write(sampleWriteContents)
 sampleWrite.close()
 
-otherDB = open(os.path.join("src", "Helpers", "OtherDB.ts"), "w")
+otherDB = open(os.path.join("src", "Helpers", "BackendDB.ts"), "w")
 otherDBContents = """import * as admin from "firebase-admin";
 import constants from "./constants";
 
-const otherApp = admin.initializeApp(
+const backendApp = admin.initializeApp(
   {
-    databaseURL: constants.other_DB_URL,
+    databaseURL: constants.BACKEND_DB_URL,
   },
-  "otherApp"
+  "backendApp"
 );
 
-const otherDB = otherApp.database();
+const backendDB = backendApp.database();
 
-export default otherDB;
+export default backendDB;
 """
 otherDB.write(otherDBContents)
 otherDB.close()

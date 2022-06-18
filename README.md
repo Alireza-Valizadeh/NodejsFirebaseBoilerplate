@@ -21,5 +21,5 @@ First delete the default src folder and then run the above command at functions 
 - - constants.ts
 - - OtherDB.ts
 index.ts
-jest.config.js
+jest.config.js (needs to be in the same folder as ts.config.json)
 
