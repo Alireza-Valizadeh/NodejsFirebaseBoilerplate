@@ -1,7 +1,5 @@
 # google-cloud-function-template
 A clean template for google cloud functions
-You need to run the index.py file using python3 index.py command
-First delete the default src folder and then run the above command at functions directory
 - DataAccess:
 - - Read
 - - - getSomething.ts
