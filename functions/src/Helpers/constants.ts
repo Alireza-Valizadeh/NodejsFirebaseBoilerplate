@@ -9,4 +9,5 @@ export default {
   INITS_DB_URL: `https://${project_name}-inits.firebaseio.com`,
   LOGS_DB_URL: `https://${project_name}-logs.firebaseio.com`,
   REPORTS_DB_URL: `https://${project_name}-reports.firebaseio.com`,
+  project_id: project_id
 };
