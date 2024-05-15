@@ -19,8 +19,8 @@ This repository provides a clean, structured template for building and deploying
 |   |   |-- getSomething.ts
 |   |-- /Write
 |   |   |-- setSomething.ts
-|   |-- /Validators
-|   |   |-- validateUid.ts
+|-- /Validators
+|   |-- validateUid.ts
 |-- /Configs
 |-- /tests
 |   |-- /Integration
@@ -29,7 +29,7 @@ This repository provides a clean, structured template for building and deploying
 |   |   |-- validateUid.test.ts
 |-- /Helpers
 |   |-- constants.ts
-|   |-- OtherDB.ts
+|   |-- defaultApp.ts
 |-- index.ts
 |-- jest.config.js
 |-- ts.config.json
